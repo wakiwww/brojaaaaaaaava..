@@ -3,7 +3,7 @@
  * 应用场景：综合运用类、对象、构造方法、this、static等知识
  */
 
-public class Student {
+class Student {
     // 实例变量 - 每个学生对象独有
     private String studentId;
     private String name;

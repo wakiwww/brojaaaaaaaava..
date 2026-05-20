@@ -47,6 +47,7 @@ public Book(String title, String author, double price){
 public void borrow (){
     if(isBorrowed!=true){
         isBorrowed = true;
+        System.out.println("借书成功");
     }else{
         System.out.println("已被借出");
     }
@@ -54,6 +55,7 @@ public void borrow (){
 public void returnBook(){
     if(isBorrowed!=false){
         isBorrowed=false;
+        System.out.println("还书成功");
     }else{
         System.out.println("无需归还");
     }
@@ -68,7 +70,7 @@ public String getTitle(){
     System.out.println("书名："+title);
     return title;
 }
-public String setPrice(double price){
+public void  setPrice(double price){
     if(price<0){
         System.out.println("价格不能为负数");
     }else{
@@ -77,7 +79,7 @@ public String setPrice(double price){
     }
 }
 }
-public class Practice {
+public class Practice_01 {
     public static void main(String[] args) {
         // 在这里写你的测试代码
         Book book1 = new Book("香蕉种植方法", "博罗", 128.0);
