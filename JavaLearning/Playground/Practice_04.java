@@ -52,21 +52,13 @@ class Drink {
 // TODO: 继承 Drink
 class Coffee extends Drink {
 
-    // TODO: 构造方法，接收 name 和 price，用 super 调用父类构造
     protected Coffee(String name, double price){
         super(name,price);
+
     }
-
-    // TODO: @Override make()，先调用父类的 make()，再输出 "加了一份浓缩"
-    @Override 
-    protected void make(){
-        super.make();
-        System.out.println("加了一份浓缩");}
-
-    // TODO: 方法 addShot()，输出 "{name} 加了双份浓缩，价格变为 {price + 10}元"
     protected void addShot(){
-        price += 10;
-        System.out.println(name + " 加了双份浓缩，价格变为 " + price + "元");
+        price=price+10.0;
+        System.out.println("加了浓缩");
     }
 
     }
