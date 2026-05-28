@@ -1,6 +1,6 @@
 /**
  * 第5章 - 5.5 final关键字
- *
+ *  final用来写那些不会被改变的东西，例如圆周率，邮政编码
  * 【核心概念】final = "最终的、不可改变的"
  *   可以修饰三种东西：类、方法、变量
  *
@@ -44,7 +44,7 @@ final class ImmutableData {
 // ========== 非 final 类：可以被继承 ==========
 class Parent {
 
-    // 【static final】类级别的常量，全大写命名
+    // 【static final】类级别的常量，全大写命名（用来确保属于类，即所有对象共用但是也不能被更改
     // 所有对象共享，值不可变
     public static final double PI = 3.14159;
     public static final int MAX_SIZE = 100;

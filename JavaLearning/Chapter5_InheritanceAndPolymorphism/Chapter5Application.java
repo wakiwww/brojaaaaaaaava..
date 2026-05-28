@@ -7,7 +7,7 @@ public class Employee {
     protected String empId;
     protected String name;
     protected double baseSalary;
-
+    //构造方法
     public Employee(String empId, String name, double baseSalary) {
         this.empId = empId;
         this.name = name;
@@ -34,7 +34,7 @@ class FullTimeEmployee extends Employee {
     private double bonus;
 
     public FullTimeEmployee(String empId, String name, double baseSalary, double bonus) {
-        super(empId, name, baseSalary);
+        super(empId, name, baseSalary);//调用父类
         this.bonus = bonus;
     }
 
@@ -97,6 +97,7 @@ class Manager extends FullTimeEmployee {
     }
 
     @Override
+    //加上奖金之后的工资计算法
     public double calculateSalary() {
         return super.calculateSalary() + managementBonus;
     }
@@ -117,10 +118,10 @@ class HRSystem {
         System.out.println("\n========== 工资处理系统 ==========");
         double totalPayroll = 0;
 
-        for (Employee emp : employees) {
+        for (Employee emp : employees) {//从employee数组里面一个一个拿出来，每次叫emp
             double salary = emp.calculateSalary();
             System.out.println(emp.name + ": " + salary);
-            totalPayroll += salary;
+            totalPayroll += salary;//要发的总工资
 
             // 多态应用：根据实际类型执行不同操作
             if (emp instanceof Manager) {

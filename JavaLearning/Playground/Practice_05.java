@@ -19,7 +19,7 @@
 
 // ========== 父类 Animal ==========
 class Animal {
-    protected String name;
+    protected String name;//用于放别人的名字
     protected int age;
     Animal(String name,int age){
         this.name=name;
@@ -64,7 +64,7 @@ class Cat extends Animal {
 public class Practice_05 {
     public static void main(String[] args) {
         System.out.println("--- Dog ---");
-        Dog dog = new Dog("旺财", 3);
+        Dog dog = new Dog("旺财", 3);//需要调用只有子类Dog才有的wagtail所以用Dog
         dog.info();
         dog.speak();
         dog.wagTail();
