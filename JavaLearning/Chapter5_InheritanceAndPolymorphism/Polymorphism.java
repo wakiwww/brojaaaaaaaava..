@@ -98,8 +98,8 @@ public class Polymorphism {
         }
 
         // 【instanceof + 向下转型】
-        // 父类引用只能调用父类有的方法（run、stop）
-        // 如果想调用子类特有方法（openTrunk、takeOff），需要先判断类型再强转
+        // 父类引用只能调用父类有的方法（run、stop）如果想调用子类特有方法（openTrunk、takeOff），需要先判断类型再强转
+        // 判断接受的参数类型，car就调用car类的方法
         public void specialOperation(Vehicle transport) {
             if (transport instanceof Car) {
                 ((Car) transport).openTrunk();
