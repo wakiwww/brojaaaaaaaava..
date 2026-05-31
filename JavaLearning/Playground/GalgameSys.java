@@ -133,9 +133,9 @@ public class GalgameSys {
 
     // ========== 主方法 ==========
     public static void main(String[] args) {
-        Heroine yuki = new ChildhoodFriend("雪乃", 17, "安静");
-        Heroine riko = new StudentCouncil("理世", 18, "学生会长");
-        Heroine makoto = new TransferStudent("小町", 17, "谜之转校生");
+        Heroine yuki = new ChildhoodFriend("yukino", 17, "安静");
+        Heroine riko = new StudentCouncil("riko", 18, "学生会长");
+        Heroine makoto = new TransferStudent("makoto", 17, "谜之转校生");
 
         GameSystem game = new GameSystem();
 
