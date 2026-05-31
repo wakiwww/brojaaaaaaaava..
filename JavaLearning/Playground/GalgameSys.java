@@ -119,7 +119,7 @@ public class GalgameSys {
         public void specialEvent(Heroine heroine) {
             heroine.specialEvent();
         }
-
+// 处理不同类对应的情况
         public void triggerSpecial(Heroine heroine){
             if(heroine instanceof ChildhoodFriend){
                 ((ChildhoodFriend)heroine).triggerMemory();
