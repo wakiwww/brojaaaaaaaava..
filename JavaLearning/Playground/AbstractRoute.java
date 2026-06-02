@@ -41,27 +41,65 @@
 //   - abstract 方法：trigger()、getDialogue()
 //   - 普通方法：displayHeader()，输出分隔线和事件标题
 //   - 普通方法：showResult()，输出对话和好感度
-abstract class route{
+abstract class RouteEvent{
     protected String eventName;
     protected double affection;
 
     abstract void trigger();
-    abstract String getDialogue();
+    abstract void getDialogue();
 
-    protected void displayHeader(){
-        System.out.println("---------");
-        System.out.print(eventName);
+    protected void displayHeader(int act){
+        System.out.println("═══════════════════════════════");
+        System.out.println("◆ 第" + act + "幕：" + eventName);
+        System.out.println("─────────────────────────────");
+    }
+
+    protected void showResult(){
+        System.out.println("好感度："+affection);
     }
 }
 // ========== 子类：告白事件 ==========
 // TODO：实现 trigger() 和 getDialogue()
-
+class ConfessionEvent extends RouteEvent{
+        protected ConfessionEvent(String eventName,double affection){
+       this.eventName=eventName;
+       this.affection=affection;
+    }
+    protected void trigger(){
+        System.out.println("\n雪乃は顔を赤らめながら...");
+    }
+    protected void getDialogue(){
+        System.out.println("\n「...ずっと好きでした」");
+    }
+}
 // ========== 子类：文化祭事件 ==========
 // TODO：实现 trigger() 和 getDialogue()
-
+class FestivalEvent extends RouteEvent{
+    protected FestivalEvent(String eventName,double affection){
+       this.eventName=eventName;
+       this.affection=affection;
+    }
+    protected void trigger(){
+        System.out.println("\n理世は文化祭の準備に追われている...");
+    }
+    protected void getDialogue(){
+        System.out.println("\n「手伝ってくれてありがとう」");
+    }
+}
 // ========== 子类：离别事件 ==========
 // TODO：实现 trigger() 和 getDialogue()
-
+class FarewellEvent extends RouteEvent{
+    protected FarewellEvent(String eventName,double affection){
+       this.eventName=eventName;
+       this.affection=affection;
+    }
+    protected void trigger(){
+        System.out.println("\n小町は空港に立っている");
+    }
+    protected void getDialogue(){
+        System.out.println("\n「また会えるよね？」");
+    }
+}
 // ========== 主方法（已写好，不要改） ==========
 public class AbstractRoute {
     public static void main(String[] args) {
@@ -70,10 +108,12 @@ public class AbstractRoute {
         RouteEvent farewell = new FarewellEvent("离别", 90);
 
         RouteEvent[] events = {confession, festival, farewell};
+        int actCount = 1;
         for (RouteEvent event : events) {
-            event.displayHeader();
+            event.displayHeader(actCount);
             event.trigger();
             event.showResult();
+            actCount++;
         }
     }
 }
