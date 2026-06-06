@@ -6,11 +6,11 @@
 // 接口 - 支付方式
 interface PaymentMethod {
     void pay(double amount);
-    boolean validateAccount();
-    String getPaymentType();
+    boolean validateAccount();//账户验证
+    String getPaymentType();//支付类型
 }
 
-// 接口 - 交易记录
+// 接口 - 交易记录，交易单号、交易金额、交易状态
 interface TransactionLogger {
     void logTransaction(String transactionId, double amount, String status);
 }
@@ -19,7 +19,7 @@ interface TransactionLogger {
 abstract class PaymentProcessor {
     protected String processorId;
     protected TransactionLogger logger;
-
+// 构造支付处理方法
     public PaymentProcessor(String processorId, TransactionLogger logger) {
         this.processorId = processorId;
         this.logger = logger;
