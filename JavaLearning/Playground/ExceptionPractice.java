@@ -28,24 +28,30 @@ class InvalidSaveException extends Exception{
     }
 }
 class SaveManager {
-    public void save(String filename) throws InvalidSaveException{
-        if(filename == null || filename.isEmpty()){
-            throw new InvalidSaveException("文件名不能为空");
-        }
-        if(filename.matches(".*[!@#$%^&()].*")){
-            throw new InvalidSaveException("文件名不能包含特殊字符");
-        }else{
-            System.out.println("存档成功: "+filename);
-        }
-    }
-    public void load(String filename) throws InvalidSaveException{
-        if(filename ==null || filename.isEmpty()){
-            throw new InvalidSaveException("存档文件不存在");
-        }else{
-            System.out.println("读档成功: "+filename);
+    public void save(String filename) {
+        try {
+            if (filename == null || filename.isEmpty()) {
+                throw new InvalidSaveException("文件名不能为空");
+            }
+            if (filename.matches(".*[!@#$%^&()].*")) {
+                throw new InvalidSaveException("文件名不能包含特殊字符");
+            }
+            System.out.println("存档成功: " + filename);
+        } catch (InvalidSaveException e) {
+            System.out.println("存档失败: " + e.getMessage());
         }
     }
 
+    public void load(String filename) {
+        try {
+            if (filename == null || filename.isEmpty()) {
+                throw new InvalidSaveException("存档文件不存在");
+            }
+            System.out.println("读档成功: " + filename);
+        } catch (InvalidSaveException e) {
+            System.out.println("读档失败: " + e.getMessage());
+        }
+    }
 }
 
 
@@ -56,40 +62,11 @@ public class ExceptionPractice {
 
         System.out.println("=== 存档系统启动 ===\n");
 
-        try {
-            manager.save("save_01.dat");
-        } catch (InvalidSaveException e) {
-            System.out.println("存档失败: " + e.getMessage());
-        }
-
-        try {
-            manager.save("");
-        } catch (InvalidSaveException e) {
-            System.out.println("存档失败: " + e.getMessage());
-        }
-
-        try {
-            manager.save("save@02.dat");
-        } catch (InvalidSaveException e) {
-            System.out.println("存档失败: " + e.getMessage());
-        }
-
-        try {
-            manager.save("save_02.dat");
-        } catch (InvalidSaveException e) {
-            System.out.println("存档失败: " + e.getMessage());
-        }
-
-        try {
-            manager.load("save_02.dat");
-        } catch (InvalidSaveException e) {
-            System.out.println("读档失败: " + e.getMessage());
-        }
-
-        try {
-            manager.load(null);
-        } catch (InvalidSaveException e) {
-            System.out.println("读档失败: " + e.getMessage());
-        }
+        manager.save("save_01.dat");
+        manager.save("");
+        manager.save("save@02.dat");
+        manager.save("save_02.dat");
+        manager.load("save_02.dat");
+        manager.load(null);
     }
 }
