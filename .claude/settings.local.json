@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/lixixian/WORKPLACE -name \"Practice_03.java\" 2>/dev/null)",
+      "Read(//Users/lixixian/WORKPLACE/**)"
+    ]
+  }
+}
