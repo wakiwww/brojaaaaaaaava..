@@ -106,7 +106,7 @@ D. Child c = new Parent();
 12. 关于异常处理，说法正确的是【  B  】。  
    A. try块后面必须跟catch块  
    B. finally块一定会执行  
-   C. 多个catch块时，子类异常应放在父类后面  
+   C. 多个catch块时，子类异常应放在父类后面   
    D. finally块可以没有try块
  
 13. 关于线程，说法错误的是【  C  】。  
@@ -338,35 +338,36 @@ class BankAccount{
    - 在main方法中测试使用信用卡和支付宝分别支付
 ​
  
-​interface Payable {
-    void pay(double amount);
+interface Payable{
+    public void pay(double amount);
 }
- 
-class CreditCard implements Payable {
-    @Override
-    public void pay(double amount) {
-        System.out.println("信用卡支付" + amount + "元");
+
+CreditCard implements Payable{
+    public void pay(double amount){
+        System.out.println("信用卡支付"+amount+"元");
     }
 }
- 
-class AliPay implements Payable {
-    @Override
-    public void pay(double amount) {
-        System.out.println("支付宝支付" + amount + "元");
+
+
+AliPay implements Payable{
+    public void pay(double amount){
+        System.out.println("支付宝支付"+amount+"元");
     }
 }
- 
-class PaymentProcessor {
-    public void processPayment(Payable p, double amount) {
+
+PaymentProcessor{
+    public void processPayment(Payable p,double amount){
         p.pay(amount);
     }
 }
- 
-public class Test {
-    public static void main(String[] args) {
+
+public class Test{
+    public static void main(String[] args){
         PaymentProcessor processor = new PaymentProcessor();
-        processor.processPayment(new CreditCard(), 500.5);
-        processor.processPayment(new AliPay(), 2000);
+        Payable creditCard = new CreditCard();
+        Payable aliPay = new AliPay();
+       
+        processor.processPayment(creditCard,100);
+        processor.processPayment(aliPay,200);
     }
 }
- 
