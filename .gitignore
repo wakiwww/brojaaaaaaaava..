@@ -1,6 +1,7 @@
 *.class
 .idea/
-.temporary/
+temporary/
+.vscode/
 *.log
 *.tmp
 *.bak
